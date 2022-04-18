@@ -1,3 +1,5 @@
+pub mod leetcode;
+
 #[cfg(test)]
 mod tests {
     #[test]
