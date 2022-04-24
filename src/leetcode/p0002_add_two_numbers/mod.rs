@@ -12,35 +12,35 @@ impl ListNode {
     }
 }
 
-    pub fn add_two_numbers(
-        l1: Option<Box<ListNode>>,
-        l2: Option<Box<ListNode>>,
-    ) -> Option<Box<ListNode>> {
-        let mut list1 = l1;
-        let mut list2 = l2;
-        let mut carry = 0;
-        let mut header = Box::new(ListNode::new(0));
-        let mut tail = &mut header;
-        while list1.is_some() || list2.is_some() || carry != 0 {
-            let sum = if let Some(v1) = list1 {
-                list1 = v1.next;
-                v1.val
-            } else {
-                0
-            } + if let Some(v2) = list2 {
-                list2 = v2.next;
-                v2.val
-            } else {
-                0
-            } + carry;
+pub fn add_two_numbers(
+    l1: Option<Box<ListNode>>,
+    l2: Option<Box<ListNode>>,
+) -> Option<Box<ListNode>> {
+    let mut list1 = l1;
+    let mut list2 = l2;
+    let mut carry = 0;
+    let mut header = Box::new(ListNode::new(0));
+    let mut tail = &mut header;
+    while list1.is_some() || list2.is_some() || carry != 0 {
+        let sum = if let Some(v1) = list1 {
+            list1 = v1.next;
+            v1.val
+        } else {
+            0
+        } + if let Some(v2) = list2 {
+            list2 = v2.next;
+            v2.val
+        } else {
+            0
+        } + carry;
 
-            carry = sum / 10;
-            tail.next = Some(Box::new(ListNode::new(sum % 10)));
-            tail = tail.next.as_mut().unwrap();
-        }
-
-        header.next
+        carry = sum / 10;
+        tail.next = Some(Box::new(ListNode::new(sum % 10)));
+        tail = tail.next.as_mut().unwrap();
     }
+
+    header.next
+}
 
 #[cfg(test)]
 mod tests {
