@@ -2,7 +2,11 @@ pub fn str_str(haystack: String, needle: String) -> i32 {
     if needle.is_empty() {
         return 0;
     }
-    haystack.find(&needle).map_or(-1_i32, |v| v as i32)
+    if let Some(ind) = haystack.find(&needle) {
+        ind as i32
+    } else {
+        -1
+    }
 }
 
 #[cfg(test)]
