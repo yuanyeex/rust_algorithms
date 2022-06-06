@@ -8,4 +8,5 @@ pub mod p0015_3Sum;
 pub mod p0016_3Sum_Closest;
 pub mod p0018_4sum;
 pub mod p0028_implement_str_str;
+pub mod p0026_remove_duplicates_from_sorted_array;
 pub mod p2006_count_number_of_pairs_with_absolute_difference_k;
